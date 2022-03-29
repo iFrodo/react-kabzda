@@ -1,4 +1,9 @@
 .MyPosts{
   color: blueviolet;
-  font-size: 30px;
+  font-size: 20px;
+  padding-left:10px;
+  padding-top: 10px;
+}
+.post_button{
+  padding-bottom: 30px;
 }
