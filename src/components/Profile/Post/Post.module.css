@@ -1,0 +1,12 @@
+.item{
+  color: greenyellow;
+  font-size: 15px;
+}
+.img {
+height: 70px;
+  border-radius: 25px;
+
+}
+.like span{
+  color:red;
+}

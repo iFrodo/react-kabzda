@@ -1,0 +1,18 @@
+.nav{
+    grid-area: n;
+    background-color: burlywood;
+    
+  
+  }
+  .item a{
+      color:black;
+      text-decoration: none;
+      padding: 10px;
+      font-family: Ebrima;
+
+
+  }
+
+.item .active{
+    color:blue;
+}
