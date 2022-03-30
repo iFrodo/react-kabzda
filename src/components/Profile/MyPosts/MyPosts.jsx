@@ -3,14 +3,10 @@ import Post from "../Post/Post";
 const myFunction = () => {
     alert("Размечтался")
 }
-const postData = [
-    {id: 1, message:'Hi', likescount:'14'},
-    {id: 2, message:'This my first project', likescount:'123'},
-    {id: 2, message:'This my first project', likescount:'123'},
-    {id: 2, message:'This my first project', likescount:'123'}
-]
-let postElements = postData.map (post => <Post id={post.id} message={post.message} likesCount={post.likescount}/>)
-const MyPosts = () => {
+
+
+const MyPosts = (props) => {
+    let postElements = props.postData.map (post => <Post  id={post.id} message={post.message} likesCount={post.likescount}/>)
     return (<div className={classes.MyPosts}>
     
     <div >
