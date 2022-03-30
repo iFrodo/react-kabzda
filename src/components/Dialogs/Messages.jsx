@@ -1,7 +1,23 @@
 import React from 'react';
 import classes from "./Messages.module.css"
 import {NavLink} from "react-router-dom";
+const messageItemData =[
+    {id:1 , name:'Igor'},
+    {id:2 , name:'Sasha'},
+    {id:3 , name:'Anton'},
+    {id:4 , name:'Brandon'},
+    {id:5 , name:'Ilya'},
+    {id:6 , name:'Peter'},
 
+];
+const messageMessagesData = [
+    {id:1, message:'Hello'},
+    {id:2, message:'My name is Sasha'},
+    {id:3, message:'AVANOKEDAVRA'},
+    {id:4, message:'ФЫВЧЯСЧЧы'},
+    {id:5, message:'Приветик'},
+    {id:6, message:'Hello'}
+];
 
 const MessagesItem =(props) => {
     return(
@@ -10,9 +26,11 @@ const MessagesItem =(props) => {
 }
 const Message = (props) =>{
     return(
-        <div>{props.message}</div>
+        <div >{props.message}</div>
     )
 }
+const messagesElements = messageItemData.map ( dialog  => <MessagesItem key ={dialog.id} name={dialog.name} id={dialog.id} />)
+const profileElements = messageMessagesData.map ( message =><Message key ={message.id}id={message.id} message={message.message}/> )
 
 const Messages = (props) => {
     return (
@@ -20,23 +38,14 @@ const Messages = (props) => {
             Dialogs
             <div className={classes.peaple}>
 
-                <MessagesItem name='Igor' id='1' />
-                <MessagesItem name='Sasha' id='2' />
-                <MessagesItem name='Anton' id='3' />
-                <MessagesItem name='Brandon' id='4' />
-                <MessagesItem name='Ilya' id='5' />
-                <MessagesItem name='Peter' id='6' />
+                {messagesElements}
 
 
             </div>
             <div className={classes.messages}>
 
-                <Message message='Hello'/>
-                <Message message='Hello my friend'/>
-                <Message message='Hello how are y?'/>
-                <Message message='Whats up'/>
-                <Message message='My name is Ilya'/>
-                <Message message='Hello'/>
+                {profileElements}
+
 
 
 

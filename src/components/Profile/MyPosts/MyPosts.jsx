@@ -3,6 +3,13 @@ import Post from "../Post/Post";
 const myFunction = () => {
     alert("Размечтался")
 }
+const postData = [
+    {id: 1, message:'Hi', likescount:'14'},
+    {id: 2, message:'This my first project', likescount:'123'},
+    {id: 2, message:'This my first project', likescount:'123'},
+    {id: 2, message:'This my first project', likescount:'123'}
+]
+let postElements = postData.map (post => <Post id={post.id} message={post.message} likesCount={post.likescount}/>)
 const MyPosts = () => {
     return (<div className={classes.MyPosts}>
     
@@ -13,8 +20,9 @@ const MyPosts = () => {
         <button onClick={myFunction} id='butt'>New post</button>
 
       </div>
-        <div> <Post message='Hi' likesCount='32'/></div>
-        <div> <Post message='This my first project' likesCount='5'/></div>
+        <div className={classes.item}>
+        {postElements}
+        </div>
 
       </div>)
 }
