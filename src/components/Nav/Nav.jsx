@@ -1,23 +1,22 @@
 import classes from'./Nav.module.css'
-import {NavLink} from "react-router-dom";
 
-const Nav = () => {
+import FriendsImagesItem from "./friendsImagesItem";
+import NavData from "./navData";
+
+
+const Nav = (props) => {
+
+const navElements= props.navData.map (nav => <NavData id={nav.id} name={nav.name} />)
+const friendsElement = props.friendsImages.map (images => <FriendsImagesItem id={images.id} friendsImages={images.avatar} name={images.name} />)
+
     return <nav className={classes.nav}>
-    <div className={classes.item}>
-      <NavLink to="/profile"  className = { navData => navData.isActive ? classes.active : classes.item }>Profile</NavLink>
-      </div>
-    <div className={classes.item}>
-        <NavLink to="/messages/" className = { navData => navData.isActive ? classes.active : classes.item }>Messages</NavLink>
-      </div>
-    <div className={classes.item}>
-      <NavLink to="/news" className = { navData => navData.isActive ? classes.active : classes.item }>News</NavLink>
-      </div >
-    <div className={classes.item}>
-      <NavLink to="/music" className = { navData => navData.isActive ? classes.active : classes.item }>Music</NavLink>
-      </div>
-    <div className={classes.item}>
-      <NavLink to="/settings" className = { navData => navData.isActive ? classes.active : classes.item }>Settings</NavLink>
-      </div>
+        {navElements}
+        <div ><p>Friends</p></div>
+        <div className={classes.friends}>
+            {friendsElement}
+
+
+        </div>
     </nav>
 }
 export default Nav

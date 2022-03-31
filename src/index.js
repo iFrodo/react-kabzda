@@ -7,7 +7,7 @@ import state from './state'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App messageMessagesData={state.messageMessagesData} messageItemData={state.messageItemData} postData={state.postData} />
+    <App messageMessagesData={state.messagesPage.messageMessagesData} messageItemData={state.messagesPage.messageItemData} postData={state.profilePage.postData} friendsImages={state.friendsImages} navData={state.navData}  />
   </React.StrictMode>,
   document.getElementById('root')
 );

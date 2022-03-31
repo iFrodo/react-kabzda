@@ -16,7 +16,7 @@ const App = (props) => {
 
             <div className='app-wrapper'>
         <Header/>
-        <Nav/>
+        <Nav friendsImages={props.friendsImages} navData={props.navData} />
         <div className='app-wrapper_content'>
             <Routes>
 

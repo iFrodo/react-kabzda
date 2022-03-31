@@ -16,3 +16,28 @@
 .item .active{
     color:blue;
 }
+
+.nav img {
+    max-width: 60px;
+    min-height: 60px;
+    border-radius: 10px;
+}
+
+.nav .friends {
+    font-family: Bahnschrift;
+    padding: 10px;
+    text-align: center;
+    display:grid;
+    grid-template-columns: 70px 70px 70px ;
+
+
+}
+.nav p {
+    font-size: larger;
+    padding: 10px;
+    font-family: Ebrima;
+    color:blueviolet;
+}
+
+
+
