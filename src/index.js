@@ -3,11 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state from './state'
+import state, {addPost} from './state'
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App messageMessagesData={state.messagesPage.messageMessagesData} messageItemData={state.messagesPage.messageItemData} postData={state.profilePage.postData} friendsImages={state.friendsImages} navData={state.navData}  />
+    <App messageMessagesData={state.messagesPage.messageMessagesData}
+         messageItemData={state.messagesPage.messageItemData}
+         postData={state.profilePage.postData}
+         friendsImages={state.friendsImages}
+         navData={state.navData} addPost={addPost}  />
   </React.StrictMode>,
   document.getElementById('root')
 );

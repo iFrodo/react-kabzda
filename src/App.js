@@ -8,6 +8,7 @@ import { Route, Routes } from "react-router";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
+import {addPost} from "./state";
 
 const App = (props) => {
 
@@ -21,7 +22,7 @@ const App = (props) => {
             <Routes>
 
             <Route path="/messages/*" element={<Messages messageMessagesData = {props.messageMessagesData} messageItemData={props.messageItemData} />} />
-            <Route path="/profile" element={<Profile postData={props.postData} />} />
+            <Route path="/profile" element={<Profile postData={props.postData }addPost={props.addPost}  />} />
             <Route path="/news" element={<News/>} />
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />
