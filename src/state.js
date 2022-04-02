@@ -1,9 +1,14 @@
+import {rerenderEntireThree} from "./components/render";
+
 let state = {
+
     profilePage: {
+        newPostText:'it-kamasutra',
         postData: [{id: 1, message: 'Hi', likescount: '14'},
             {id: 2, message: 'This my first project', likescount: '123'},
             {id: 2, message: 'This my first project', likescount: '123'},
             {id: 2, message: 'This my first project', likescount: '123'}],
+
     },
     messagesPage: {
         messageMessagesData: [{id: 1, message: 'Hello'},
@@ -22,7 +27,7 @@ let state = {
     },
     friendsImages: [
         {id: 1 ,name: 'Sasha',avatar: 'https://pixelbox.ru/wp-content/uploads/2020/12/ava-vk-cats-90.jpg'},
-        {id: 2 ,name: 'Alena',avatar: 'https://flytothesky.ru/wp-content/uploads/2014/03/1185.jpg}'},
+        {id: 2 ,name: 'Alena',avatar: 'https://yt3.ggpht.com/a-/AAuE7mCDRjHltSg-2cbjl8JCnuGaJes5F4nlaKQSJg=s800-mo-c-c0xffffffff-rj-k-no'},
         {id: 3 ,name: 'Lada', avatar: 'https://proza.ru/pics/2014/01/12/2133.jpg'}],
     navData:
         [{id:'/profile',name:'Profile'},
@@ -35,13 +40,20 @@ let state = {
 
 }
 
-export let addPost = (message) =>{
-    debugger
+export let addPost = () =>{
+
     let postData = {
         id:5,
-        message:message,
-        likescount:0
+        message:state.profilePage.newPostText,
+        likescount:'',
     }
-    state.profilePage.postData.push(postData)
+    state.profilePage.postData.unshift(postData)
+    changeNewPostText('')
+    rerenderEntireThree(state)
+}
+
+export let changeNewPostText = (newPost) =>{
+    state.profilePage.newPostText = newPost
+    rerenderEntireThree(state)
 }
 export default state
