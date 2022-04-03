@@ -1,4 +1,6 @@
-import {rerenderEntireThree} from "./components/render";
+let rerenderEntireThree = () => {
+console.log('sa')
+}
 
 let state = {
 
@@ -23,7 +25,8 @@ let state = {
             {id: 3, name: 'Anton'},
             {id: 4, name: 'Brandon'},
             {id: 5, name: 'Ilya'},
-            {id: 6, name: 'Peter'},]
+            {id: 6, name: 'Peter'},],
+        messageNewText:'Drow here'
     },
     friendsImages: [
         {id: 1 ,name: 'Sasha',avatar: 'https://pixelbox.ru/wp-content/uploads/2020/12/ava-vk-cats-90.jpg'},
@@ -49,11 +52,30 @@ export let addPost = () =>{
     }
     state.profilePage.postData.unshift(postData)
     changeNewPostText('')
-    rerenderEntireThree(state)
+    rerenderEntireThree()
 }
 
 export let changeNewPostText = (newPost) =>{
     state.profilePage.newPostText = newPost
-    rerenderEntireThree(state)
+    rerenderEntireThree()
+}
+export let changeNewMessage = (newPost) => {
+    state.messagesPage.messageNewText = newPost
+    rerenderEntireThree()
+}
+export let addNewMessage = () =>{
+
+    let messageMessagesData = {
+
+        id:5,
+        message:state.messagesPage.messageNewText,
+        likescount:'',
+    }
+    state.messagesPage.messageMessagesData.unshift(messageMessagesData)
+    changeNewPostText('')
+    rerenderEntireThree()
+}
+export const subscribe = (observer) => {
+    rerenderEntireThree = observer
 }
 export default state
