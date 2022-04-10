@@ -1,10 +1,22 @@
 
 .main_theme {
-    height:623px ;
+    max-width:1200px ;
+    max-height: 400px;
     margin: 0 auto;
+
+
 
 
 }
 .avatar_profile {
-    padding:10px;
+    display: grid;
+    grid-template-columns:1fr 4fr ;
+
+}
+.avatar_profile img {
+    max-width: 160px;
+    min-height: 120px;
+}
+.avatar_profile .discription{
+    opacity: 80%;
 }
