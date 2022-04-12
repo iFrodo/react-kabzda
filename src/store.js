@@ -1,3 +1,8 @@
+import messagesReduser from "./redusers/messages-reduser";
+import profileReduser from "./redusers/profiles-reduser";
+import friendsReduser from "./redusers/friends-reduser";
+import navDataReduser from "./redusers/navData-reduser";
+
 let store = {
     _state: {
 
@@ -18,12 +23,12 @@ let store = {
         messagesPage: {
             messageNewText: 'Drow here',
             messageMessagesData: [{id: 1, message: 'Hello'},
-            {id: 2, message: 'AVANA'},
-            {id: 3, message: 'KEDAVRA'},
+                {id: 2, message: 'AVANA'},
+                {id: 3, message: 'KEDAVRA'},
                 {id: 4, message: 'ZAE'},
-            {id: 5, message: 'XER'},
-            {id: 6, message: 'REX'},
-                ],
+                {id: 5, message: 'XER'},
+                {id: 6, message: 'REX'},
+            ],
             messageItemData: [
                 {id: 1, name: 'Igor'},
                 {id: 2, name: 'Sasha'},
@@ -34,7 +39,7 @@ let store = {
 
 
         },
-        friendsImages: [
+        friends: [
             {id: 1, name: 'Sasha', avatar: 'https://pixelbox.ru/wp-content/uploads/2020/12/ava-vk-cats-90.jpg'},
             {
                 id: 2,
@@ -56,64 +61,24 @@ let store = {
         return this._state
     },
     _callSubscriber() {
+
         console.log('sa')
 
     },
-    subscribe(observer) {
-        this._callSubscriber = observer
+    subscribe(listener) {
+        this._callSubscriber = listener
     },
     dispatch(action) {
-        if (action.type === 'ADD_POST') {
-            let postData = {
-                id: 5,
-                message: this._state.profilePage.newPostText,
-
-                likescount: '',
-            }
-            this._state.profilePage.postData.unshift(postData)
-            this._state.profilePage.newPostText = ''
-            this._callSubscriber()
-
-        } else if (action.type === 'CHANGE_NEW_POST_TEXT') {
-
-            this._state.profilePage.newPostText = action.newText
-            this._callSubscriber()
-        }
-        else if (action.type === 'ADD_NEW_MESSAGE') {
-            let messageMessagesData = {
-                id: 5,
-                message: this._state.messagesPage.messageNewText,
-                likescount: '',
-            }
-            this._state.messagesPage.messageNewText = ''
-            this._state.messagesPage.messageMessagesData.unshift(messageMessagesData)
-            this._callSubscriber(this._state)
-
-        }
-
-        else if (action.type ==='CHANGE_NEW_MESSAGE_TEXT') {
-
-            this._state.messagesPage.messageNewText = action.newText
-            this._callSubscriber()
-        }
+        this._state.messagesPage = messagesReduser(this._state.messagesPage, action)
+        this._state.profilePage = profileReduser(this._state.profilePage,action)
+        this._state.friends = friendsReduser(this._state.friends, action)
+        this._state.navData = navDataReduser(this._state.navData,action)
+        this._callSubscriber(this._state)
     },
 
 
 }
 
 
-export const onChangeMessageActionCreator = (text) =>{
-    return({type: 'CHANGE_NEW_MESSAGE_TEXT', newText:text})
-}
-export const onChangeNewPostActionCreator = (text) =>{
-    return({type: 'CHANGE_NEW_POST_TEXT', newText: text})
-}
-export const addNewNewPostActionCreator = () =>{
-    return({type: 'ADD_POST'})
-}
 
-
-export const addNewMessageActionCreator = () => {
-    return ({type: 'ADD_NEW_MESSAGE'})
-}
 export default store

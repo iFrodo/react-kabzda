@@ -5,9 +5,8 @@ import NavData from "./navData";
 
 
 const Nav = (props) => {
-
 const navElements= props.navData.map (nav => <NavData id={nav.id} name={nav.name} />)
-const friendsElement = props.friendsImages.map (images => <FriendsImagesItem id={images.id} friendsImages={images.avatar} name={images.name} />)
+const friendsElement = props.friends.map (images => <FriendsImagesItem id={images.id} friends={images.avatar} name={images.name} />)
 
     return <nav className={classes.nav}>
         {navElements}

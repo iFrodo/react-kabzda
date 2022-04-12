@@ -1,5 +1,5 @@
 import React from "react";
-import {onChangeMessageActionCreator} from "../../../state";
+import {onChangeMessageActionCreator} from "../../../store";
 
 // const Message = (props) => {
 //     debugger

@@ -1,18 +1,17 @@
 import classes from './MyPosts.module.css'
 import Post from "../Post/Post";
 import React from "react";
-import {addNewNewPostActionCreator, onChangeNewPostActionCreator} from "../../../state";
+
+
 
 const MyPosts = (props) => {
-        const addPost = () => {
-        //props.addPost();
-        props.dispatch(addNewNewPostActionCreator())
 
+    const addPost = () => {
+        props.onAddPost();
     }
     const onChange = (e) => {
         let text = e.target.value
-        //props.changeNewPostText(text)
-        props.dispatch(onChangeNewPostActionCreator(text))
+        props.changeNewPostText(text)
     }
     let postElements = props.postData.map(post => <Post id={post.id} message={post.message}
                                                         likesCount={post.likescount}/>)
