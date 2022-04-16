@@ -1,21 +1,24 @@
 import MyPosts from './MyPosts/MyPosts'
 import {addNewNewPostActionCreator, onChangeNewPostActionCreator} from "../../redusers/profiles-reduser";
+import {useDispatch, useSelector} from "react-redux";
 
 
 
-const MyPostsContainer = (props) => {
-let state = props.store.getState()
+const MyPostsContainer = () => {
+const profilePage = useSelector(state =>  state.profilePage)
+const dispatch = useDispatch()
+
 
 let addPost = () =>{
-   props.store.dispatch(addNewNewPostActionCreator())
+   dispatch(addNewNewPostActionCreator())
 }
     const onChange = (text) => {
 
         //props.changeNewPostText(text)
-        props.store.dispatch(onChangeNewPostActionCreator(text))
+        dispatch(onChangeNewPostActionCreator(text))
     }
     return (<div>
-        <div ><MyPosts  onAddPost={addPost} changeNewPostText={onChange} postData={state.profilePage.postData} newPostText={state.profilePage.newPostText}/></div  >
+        <div ><MyPosts  onAddPost={addPost} changeNewPostText={onChange} postData={profilePage.postData} newPostText={profilePage.newPostText}/></div  >
 
 
 

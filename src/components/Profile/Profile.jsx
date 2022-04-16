@@ -1,9 +1,12 @@
-import ProfileInfo from "./ProfileInfo/profileInfo";
+import ProfileInfoContainer from "./ProfileInfo/ProfileInfoContainer";
 import MyPostsContainer from "./MyPostsContainer";
-const Profile = (props) => {
+
+const Profile = () => {
+
     return (<div>
-      <div><ProfileInfo profileInfo={props.state.profilePage.profileInfo} /></div>
-        <div ><MyPostsContainer store={props.store}/></div  >
+
+      <div><ProfileInfoContainer  /></div>
+        <div ><MyPostsContainer /></div  >
 
 
 

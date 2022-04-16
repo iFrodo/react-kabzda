@@ -1,10 +1,11 @@
-import React from 'react';
 import './index.css';
 import store from './redux-store'
 import ReactDOM from "react-dom";
 import App from "./App";
 import {BrowserRouter} from "react-router-dom";
-import StoreContext from "./StoreContext";
+import {Provider} from "react-redux";
+
+
 
 window.store = store
 
@@ -12,13 +13,14 @@ window.store = store
 
 
 let rerenderEntireThree = (state) => {
+
     ReactDOM.render(
 
             <BrowserRouter>
-                <StoreContext.Provider value={store}>
-            <App/>
-                </StoreContext.Provider>
-            />
+                <Provider store = {store}>
+            <App state={state}/>
+                </Provider>
+
             </BrowserRouter>
         ,
         document.getElementById('root')

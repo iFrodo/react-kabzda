@@ -2,11 +2,15 @@ import classes from'./Nav.module.css'
 
 import FriendsImagesItem from "./friendsImagesItem";
 import NavData from "./navData";
+import {useSelector} from "react-redux";
 
 
-const Nav = (props) => {
-const navElements= props.navData.map (nav => <NavData id={nav.id} name={nav.name} />)
-const friendsElement = props.friends.map (images => <FriendsImagesItem id={images.id} friends={images.avatar} name={images.name} />)
+const Nav = () => {
+
+let state = useSelector(state => state )
+
+const navElements= state.navData.map (nav => <NavData id={nav.id} name={nav.name} />)
+const friendsElement = state.friends.map (images => <FriendsImagesItem id={images.id} friends={images.avatar} name={images.name} />)
 
     return <nav className={classes.nav}>
         {navElements}
