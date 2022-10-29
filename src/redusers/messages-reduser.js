@@ -27,21 +27,19 @@ let initialState = {
 const messagesReduser = (state = initialState,action) => {
 
     switch (action.type){
-        case ADD_NEW_MESSAGE:
+        case ADD_NEW_MESSAGE:{
+            return {...state,messageMessagesData:[{id: 5, message: [...state.messageNewText], likescount: ''},...state.messageMessagesData],messageNewText : ''}
 
-            let messageMessagesData = {
-                id: 5,
-                message: state.messageNewText,
-                likescount: '',}
 
-            state.messageNewText = ''
-            state.messageMessagesData.unshift(messageMessagesData)
-            state.messageMessagesData.pop(messageMessagesData)
-            return state;
 
-        case CHANGE_NEW_MESSAGE_TEXT:
-            state.messageNewText = action.newText
-            return state;
+
+
+            //state.messageMessagesData.pop(messageMessagesData)
+            }
+
+        case CHANGE_NEW_MESSAGE_TEXT:{
+            return {...state,messageNewText:action.newText}}
+
         default :return state;
     }
 }

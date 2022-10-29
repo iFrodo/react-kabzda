@@ -12,13 +12,13 @@ window.store = store
 
 
 
-let rerenderEntireThree = (state) => {
+
 
     ReactDOM.render(
 
             <BrowserRouter>
                 <Provider store = {store}>
-            <App state={state}/>
+            <App />
                 </Provider>
 
             </BrowserRouter>
@@ -26,9 +26,7 @@ let rerenderEntireThree = (state) => {
         document.getElementById('root')
 
     );
-}
 
-rerenderEntireThree(store.getState())
-store.subscribe( () =>{
-    let state = store.getState()
-    rerenderEntireThree(state)})
+
+
+store.subscribe(() => console.info(store.getState()))

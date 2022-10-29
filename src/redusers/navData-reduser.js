@@ -5,6 +5,7 @@ let initialState = [{id: '/profile', name: 'Profile'},
     {id: '/settings', name: 'Settings'}
 ]
 const navDataReduser = (state = initialState,action) => {
-    return state;
+    let stateCopy = [...state]
+    return stateCopy;
 }
 export default navDataReduser

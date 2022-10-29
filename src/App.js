@@ -15,24 +15,24 @@ const App = (props) => {
     return (
 
 
-            <div className='app-wrapper'>
-                <Header/>
-               <Nav />
-                <div className='app-wrapper_content'>
-                    <Routes>
-                        <Route path="/messages/*" element={<MessagesContainer />}/>
-                     <Route path="/profile" element={<Profile />}/>
-                        <Route path="/news" element={<News/>}/>
-                        <Route path="/music" element={<Music/>}/>
-                        <Route path="/settings" element={<Settings/>}/>
-                    </Routes>
-
-                </div>
-
+        <div className='app-wrapper'>
+            <Header/>
+            <Nav/>
+            <div className='app-wrapper_content'>
+                <Routes>
+                    <Route path="/messages/*" element={<MessagesContainer/>}/>
+                    <Route path="/profile" element={<Profile/>}/>
+                    <Route path="/news" element={<News/>}/>
+                    <Route path="/music" element={<Music/>}/>
+                    <Route path="/settings" element={<Settings/>}/>
+                </Routes>
 
             </div>
 
-        );
+
+        </div>
+
+    );
 }
 
 

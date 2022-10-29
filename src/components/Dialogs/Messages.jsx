@@ -17,6 +17,7 @@ const Messages = (props) => {
 
 
     const onChangeMessage = (e) => {
+
         let text = e.target.value
         props.updateNewMessageText(text)
 

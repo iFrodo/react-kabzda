@@ -13,7 +13,7 @@ const MyPosts = (props) => {
         let text = e.target.value
         props.changeNewPostText(text)
     }
-    let postElements = props.postData.map(post => <Post id={post.id} message={post.message}
+    let postElements = props.postData.map(post => <Post id={post.id} key={post.id} message={post.message}
                                                         likesCount={post.likescount}/>)
     return (<div className={classes.MyPosts}>
         <div>

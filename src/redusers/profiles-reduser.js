@@ -20,17 +20,11 @@ const profileReduser = (state = initialState,action) => {
 
     switch (action.type){
         case ADD_POST:
-            let postData = {
-                id: 5,
-                message: state.newPostText,
-                likescount: '',
-            }
-            state.postData.unshift(postData)
-            state.newPostText = ''
-            return state;
+            return {...state, postData:[{id: 5, message:[...state.newPostText], likescount: ''},...state.postData,],newPostText : ''}
+
         case CHANGE_NEW_POST_TEXT:
-            state.newPostText = action.newText
-            return state;
+            return  {...state,newPostText : action.newText}
+
         default :return state;
     }
 
